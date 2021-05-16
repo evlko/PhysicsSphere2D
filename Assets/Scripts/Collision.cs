@@ -20,8 +20,6 @@ public class Collision : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D other) {
-        print("HELLO MOTHERFUCKER");
-
         Sphere otherSphere = other.gameObject.GetComponent<Sphere>();
         Transform otherTransform = other.gameObject.GetComponent<Transform>();
 
@@ -52,5 +50,7 @@ public class Collision : MonoBehaviour
 
         thisSphere.UpdateSpeed();
         otherSphere.UpdateSpeed();
+        thisSphere.DrawSpeed();
+        otherSphere.DrawSpeed();
     }
 }
