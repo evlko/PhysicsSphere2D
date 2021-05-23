@@ -6,19 +6,13 @@ public class Collision : MonoBehaviour
 {
     Sphere thisSphere;
     Transform thisTransform;
-    // Start is called before the first frame update
     void Start()
     {
         thisSphere = GetComponent<Sphere>();
         thisTransform = GetComponent<Transform>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // Function to check the collision of two spheres. Only one of them should have this script. 
     void OnCollisionEnter2D(Collision2D other) {
         Sphere otherSphere = other.gameObject.GetComponent<Sphere>();
         Transform otherTransform = other.gameObject.GetComponent<Transform>();

@@ -4,30 +4,16 @@ using UnityEngine;
 
 public struct LineDrawer
 {
-    private LineRenderer lineRenderer;
-    private float lineSize;
+    LineRenderer lineRenderer;
+    float lineSize;
 
-    public LineDrawer(float lineSize = 0.2f)
+    public void LineDraw(float lineSize = 0.2f)
     {
         GameObject lineObj = new GameObject("LineObj");
         lineRenderer = lineObj.AddComponent<LineRenderer>();
-        //Particles/Additive
         lineRenderer.material = new Material(Shader.Find("Hidden/Internal-Colored"));
 
         this.lineSize = lineSize;
-    }
-
-    private void init(float lineSize = 0.2f)
-    {
-        if (lineRenderer == null)
-        {
-            GameObject lineObj = new GameObject("LineObj");
-            lineRenderer = lineObj.AddComponent<LineRenderer>();
-            //Particles/Additive
-            lineRenderer.material = new Material(Shader.Find("Hidden/Internal-Colored"));
-
-            this.lineSize = lineSize;
-        }
     }
 
     //Draws lines through the provided vertices
@@ -35,7 +21,7 @@ public struct LineDrawer
     {
         if (lineRenderer == null)
         {
-            init(0.2f);
+            LineDraw(0.2f);
         }
 
         //Set color

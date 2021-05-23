@@ -8,26 +8,29 @@ public class Sphere : MonoBehaviour
     public float hspeed;
     public float vspeed;
     public float speed;
+    public float size;
     public bool showLine;
     LineDrawer lineDrawer;
-    // Start is called before the first frame update
+    
     void Start()
     {
         UpdateSpeed();
         lineDrawer = new LineDrawer();
+        size = GetComponent<Transform>().localScale.x;
         DrawSpeed();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    // Function to scale the sphere
+    public void UpdateSize(){
+        GetComponent<Transform>().localScale = new Vector2(size, size);
     }
 
+    // Function to update speed value
     public void UpdateSpeed(){
         speed = Mathf.Sqrt(hspeed * hspeed + vspeed * vspeed);
     }
     
+    // Function to draw the speed vector
     public void DrawSpeed(){
         if(showLine){
             Vector3 startPoint = GetComponent<Transform>().localPosition;
@@ -37,6 +40,7 @@ public class Sphere : MonoBehaviour
         }
     }
 
+    // Function to destroy the drawing of speed vector
     public void DestroySpeed(){
         lineDrawer.Destroy();
     }

@@ -13,17 +13,6 @@ public class InfoPanel : MonoBehaviour
     public Sprite[] statusLine;
     public Image statusLineImage;
     Sphere sphere;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void ActivatePanel(bool status, Sphere sphereClicked){
         informationPanel.gameObject.SetActive(status);
@@ -53,6 +42,11 @@ public class InfoPanel : MonoBehaviour
         sphere.vspeed += value;
         ShowInfo();
         sphere.DrawSpeed();
+    }
+
+    public void ChangeSize(float value){
+        sphere.size += value;
+        sphere.UpdateSize();
     }
 
     public void ChangeLineStatus(){

@@ -8,28 +8,12 @@ public class TimeState : MonoBehaviour
     public Sprite[] simStatus;
     public Image buttonSprite;
     public SystemChecker system;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
+    // Function to cpause or resume the simulation
     public void ChangeSimStatus(){
-        if (system.simPlaying){
-            system.simPlaying = false;
-            Time.timeScale = 0f;
-            buttonSprite.sprite = simStatus[1];
-        }
-        else{
-            system.simPlaying = true;
-            Time.timeScale = 1f;
-            buttonSprite.sprite = simStatus[0];
-        }
+        system.simPlaying = !system.simPlaying;
+        Time.timeScale = 1 - Time.timeScale;
+        int indexSprite = (int) Time.timeScale;
+        buttonSprite.sprite = simStatus[1 - indexSprite];
     }
 }
