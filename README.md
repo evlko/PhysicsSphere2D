@@ -1,6 +1,9 @@
 # What is it? 
 Project created for the Physics Course. The idea of the project is to simulate elastic collisions between two spheres in two-dimensional space.
 
+## :video_game: Play
+[Click to play](https://evlko.itch.io/physics-spheres?secret=Oe4uMFC4RdfcnQRWLYJ6nBgtVM)
+
 ## :rocket: Features
 1. Changing all parameters of the sphere:
   * Mass
